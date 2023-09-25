@@ -1,5 +1,32 @@
 {
             "errores":[
-        ]
+        {
+                            "No":1,
+                            "descripcion":{
+                            "lexema":"*",
+                            "tipo": "error lexico",
+                            "columna":10,
+                            "fila":3
+                            }
+                },
+    {
+                            "No":2,
+                            "descripcion":{
+                            "lexema":"@",
+                            "tipo": "error lexico",
+                            "columna":10,
+                            "fila":7
+                            }
+                },
+    {
+                            "No":3,
+                            "descripcion":{
+                            "lexema":"/",
+                            "tipo": "error lexico",
+                            "columna":10,
+                            "fila":48
+                            }
+                }
+    ]
                       }
         

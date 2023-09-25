@@ -123,22 +123,35 @@ class TextEditorApp:
             erC = error.getColumna()
             erF = error.getFila()
             cont += 1
-            archivo.write('''{
-                          "No":'''+ str(contador)+ ''',
-                          "descripcion":{
-                          "lexema":"'''+str(er)+'''",
-                          "tipo": "error lexico",
-                          "columna":'''+str(erC)+''',
-                          "fila":'''+str(erF)+'''
-                          }
-            },
-''')
+            if contador != len(lista_errores):
+                archivo.write('''{
+                            "No":'''+ str(contador)+ ''',
+                            "descripcion":{
+                            "lexema":"'''+str(er)+'''",
+                            "tipo": "error lexico",
+                            "columna":'''+str(erC)+''',
+                            "fila":'''+str(erF)+'''
+                            }
+                },
+    ''')
+            else:
+                archivo.write('''{
+                            "No":'''+ str(contador)+ ''',
+                            "descripcion":{
+                            "lexema":"'''+str(er)+'''",
+                            "tipo": "error lexico",
+                            "columna":'''+str(erC)+''',
+                            "fila":'''+str(erF)+'''
+                            }
+                }
+    ''') 
             contador += 1
         archivo.write(''']
                       }
         ''')
         archivo.close()
         print("Se generó el archivo Errores.json")
+        messagebox.showinfo("Mensaje", "Se generó el archivo Errores.json")
     
 
     def reporte(self):
