@@ -157,13 +157,13 @@ class TextEditorApp:
             r.close()
             os.system("cmd /c dot -Tsvg Operaciones.dot > Operaciones.svg")
 
-            print("...............................................................")
-            print("            ** COMANDOS DE GRAPHVIZ **               ")
-            print("")
-            print(contenido)
-            print("...............................................................")
-            print("")
-            print("FIN.....")
+            #print("...............................................................")
+            #print("            ** COMANDOS DE GRAPHVIZ **               ")
+            #print("")
+            #print(contenido)
+            #print("...............................................................")
+            #print("")
+            #print("FIN.....")
             # ! dot -Tpng Operaciones.dot -o Operaciones.png
             # ! Generar desde aquí la imagen
 
@@ -266,7 +266,7 @@ def Graphviz(respuestas_Operaciones):
                 Crespuesta += 1
                 Ctotal += 1
                 if isinstance(respuesta.operar(None), int) or isinstance(respuesta.operar(None), float) == True:
-                    if str(respuesta.tipo.operar(None)) == "Seno" or str(respuesta.tipo.operar(None)) == "Coseno" or str(respuesta.tipo.operar(None)) == "Tangente" or str(respuesta.tipo.operar(None)) == "Inverso":
+                    if str(respuesta.tipo.operar(None)) == "seno" or str(respuesta.tipo.operar(None)) == "coseno" or str(respuesta.tipo.operar(None)) == "tangente" or str(respuesta.tipo.operar(None)) == "inverso":
                         text += f"\tnodoRespuesta{Crespuesta}" + "[" + f"style = filled" + f",fillcolor = {colorNodo}" + f",fontcolor = {fuenteNodo}" + "]\n"
                         text += f"\tnodoIzqu{CnumIzquierdo}" + "[" + f"style = filled" + f",fillcolor = {colorNodo}" + f",fontcolor = {fuenteNodo}" + "]\n"
                         text += f"\tnodoT{Ctotal}" + "[" + f"style = filled" + f",fillcolor = {colorNodo}" + f",fontcolor = {fuenteNodo}" + "]\n"
@@ -286,10 +286,10 @@ def Graphviz(respuestas_Operaciones):
 
                         text += f"\tnodoRespuesta{Crespuesta}" + f"[label = \"{str(respuesta.tipo.operar(None))}: " + "\"]\n"
                         text += f"\tnodoIzqu{CnumIzquierdo}" + "[label = \"Valor1: " + f" {str(respuesta.left.operar(None))} " + "\"]\n"
-                        text += f"\tnodoDere{CnumDerecho}" + "[label = \"Valor2: " + f" {str(respuesta.right.operar(None))} " + "\"]\n"
-
                         text += f"\tnodoRespuesta{Crespuesta} -> nodoIzqu{CnumIzquierdo}\n"
+                        text += f"\tnodoDere{CnumDerecho}" + "[label = \"Valor2: " + f" {str(respuesta.right.operar(None))} " + "\"]\n"
                         text += f"\tnodoRespuesta{Crespuesta} -> nodoDere{CnumDerecho}\n"
+
                         text += f"\tnodoT{Ctotal}" + f"[label = \"{respuesta.operar(None)}" + "\"]\n"
                         text += f"\tnodoT{Ctotal} -> nodoRespuesta{Crespuesta}\n"
 
